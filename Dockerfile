@@ -21,7 +21,7 @@ WORKDIR /vsearch-2.13.6; \
         ./configure; \
         make; \
         make install; \
-		cp bin/vsearch /usr/local/bin/
+        cp bin/vsearch /usr/local/bin/
 
 WORKDIR /
 
