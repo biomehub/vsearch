@@ -13,15 +13,14 @@ RUN apt-get -y update; \
     apt-get -y install unzip; \
     apt-get clean
 
-RUN wget https://github.com/torognes/vsearch/archive/v2.13.6.tar.gz; \
-    tar xzf v2.13.6.tar.gz
-	
-WORKDIR /vsearch-2.13.6; \
-        ./autogen.sh; \
-        ./configure; \
-        make; \
-        make install; \
-        cp bin/vsearch /usr/local/bin/
+RUN wget https://github.com/torognes/vsearch/releases/download/v2.13.6/vsearch-2.13.6-linux-x86_64.tar.gz
 
-WORKDIR /
+RUN tar xzf vsearch-2.13.6-linux-x86_64.tar.gz
+
+RUN mv /vsearch-2.13.6-linux-x86_64/bin/vsearch /usr/local/bin/
+
+RUN rm -r /vsearch-2.13.6-linux-x86_64/bin/vsearch
+
+RUN rm /vsearch-2.13.6-linux-x86_64.tar.gz
+
 
